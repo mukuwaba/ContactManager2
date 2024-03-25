@@ -84,9 +84,23 @@ public class ContactManagerGUI4 extends JFrame implements ActionListener {
         // Create main panel
         mainPanel = new JPanel(new BorderLayout());
         //'mainPanel' = name of the JPanel
-        //
+
+        //'BorderLayout' --> layout manager, divides container into 5 regions: N, S, E, W, Center
+        //               --> Each region can only contain one component (compo. @ N positioned at top of container, etc..)
+        //               --> found in 'java.swing'
+
+        //Container-component, can contain + manage other components (buttons. text feilds, labels, + panels)
+        //         -parent container for child components
+        //         -provide structure and organization for building GUIs
+
         mainPanel.add(new JLabel("Please select an action:"), BorderLayout.NORTH);
+        //Adds JLabel w/ text to 'mainPanel' container
+        //JLabel --> java.swing component | displays single line of read only text or an image icon
+        //'BorderLayout.NORTH' --> parameter, JLabel positioned to North region of 'mainPanel'
         mainPanel.add(buttonPanel, BorderLayout.CENTER);
+        //Adds JLabel component to 'mainPanel' container
+        //'BorderLayout.CENTER' --> parameter, JLabel positioned to Center region of 'mainPanel'
+
 
         // Add main panel to the frame
         getContentPane().add(mainPanel);
