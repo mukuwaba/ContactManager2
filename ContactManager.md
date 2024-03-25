@@ -89,7 +89,7 @@ public class ContactManagerGUI4 extends JFrame implements ActionListener {
         //               --> Each region can only contain one component (compo. @ N positioned at top of container, etc..)
         //               --> found in 'java.swing'
 
-        //Container-component, can contain + manage other components (buttons. text feilds, labels, + panels)
+        //Container-component, can contain + manage other components (buttons. text fields, labels, + panels)
         //         -parent container for child components
         //         -provide structure and organization for building GUIs
 
@@ -104,26 +104,42 @@ public class ContactManagerGUI4 extends JFrame implements ActionListener {
 
         // Add main panel to the frame
         getContentPane().add(mainPanel);
+        //adds 'mainPanel' container to frame's content pane.  --> mainPanel's compo.'s (label + button panel) display w/in frame
+        //'getContentPane()'- retrieves content of the frame.
+        //ContentPane--> special container, location to add components in Swing Applications
     }//End: Constructor
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
+    @Override //indicates method overrides a superclass method -->
+              //'actionPerformed' method overrides method defined in 'ActionListener' interface
+    public void actionPerformed(ActionEvent e) {//Defines 'actionPerformed' method-->part of 'ActionListener' interface implementation
+        //method activates when action event occurs--> pressing a button
+        //Action Event--> object | Stores information about the event that occurred
+        //e--> parameter, represents an 'ActionEvent' object + event that occurred (such as button click, menu selection, or keypress)
         if (e.getSource() == searchButton) {
-            openSearchGUI();
-        } else if (e.getSource() == inputButton) {
+            openSearchGUI();//calls method if search button is pressed
+            //'e.getSource()'--> returns the object that fired the event (event source)
+            //'searchButton' is compared to event source using == --> means event triggered by clicking search button
+        } //End: if
+        else if (e.getSource() == inputButton) {
             openInputGUI();
-        }
-    }
+        }//End:else if
+    }//End: actionPerformed [method]
 
     // Method to open GUI for searching contact
     private void openSearchGUI() {
-        dispose(); // Close the current window
+        dispose(); // Close the current window, closes JFrame so a new window can be opened | housecleaning
         JFrame searchFrame = new JFrame("Search for Contact");
+        //creates a new JFrame instance named searchFrame with the title "Search for Contact".
+        //window used for searching contacts.
         searchFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //sets the default close operation for the searchFrame. In this case,
+        //'JFrame.EXIT_ON_CLOSE'--> user closes the window, application exits.
 
         // Create input fields
         JTextField firstNameField = new JTextField(20);
         JTextField lastNameField = new JTextField(20);
+        //'columns: 20' --> initial width of 20 columns
+        //'JTextField' -->GUI component that allows the user to enter text.
 
         // Create buttons
         JButton searchButton = new JButton("Search");
