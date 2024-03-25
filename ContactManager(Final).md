@@ -262,7 +262,7 @@ public class ContactManagerGUI4 extends JFrame implements ActionListener {
     // Method to search for a contact based on first name and last name
     private void searchContact(String firstName, String lastName) {
         try {
-            Connection con = DriverManager.getConnection("jdbc:ucanaccess://C:/Users/mukuw/MB.accdb");
+            Connection con = DriverManager.getConnection("jdbc:ucanaccess://C:/Users/mukuwa.baffoe/MB.accdb");
             String query = "SELECT * FROM Student WHERE FirstName = ? AND LastName = ?";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, firstName);
