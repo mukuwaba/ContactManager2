@@ -33,10 +33,12 @@ public class ContactManagerGUI4 extends JFrame implements ActionListener {
     public ContactManagerGUI4() {//Constructor for 'ContactManagerGUI4' class
         setTitle("Contact Manager");
         //sets Title of GUI window, displays on window's title bar
-        setSize(400, 150);
-        //Sets size of GUI window
-        //Width: 400 pixels
-        //Height, 150 pixels
+
+        setSize(500, 200);
+        //Sets size of GUI window, now 200
+        //Width: 400 pixels, now 500
+        //Height: 150 pixels
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //sets default close operation for the window
         //'JFrame.EXIT_ON_CLOSE' -->indicates when user closes window (click 'close / x') application should exit/terminate
@@ -68,7 +70,7 @@ public class ContactManagerGUI4 extends JFrame implements ActionListener {
         //Why do you need action listeners?
         //used to handle events--> button clicks, menu selections, keyboard shortcuts
         //when a user interacts with components (i.e. buttons, ect) app. needs to respond
-        //allows you to define what app. does in response to user actions
+        //allows you to define what app does in response to user actions
         //button clicked--> triggers action event
 
 
@@ -142,6 +144,14 @@ public class ContactManagerGUI4 extends JFrame implements ActionListener {
     private void openSearchGUI() {
         dispose(); // Close the current window, closes JFrame so a new window can be opened | housecleaning
         JFrame searchFrame = new JFrame("Search for Contact");
+
+        //Inserted
+        setSize(500, 200);
+        //Sets size of GUI window, now 200
+        //Width: 400 pixels, now 500
+        //Height: 150 pixels
+
+
         //creates a new JFrame instance named searchFrame with the title "Search for Contact".
         //window used for searching contacts.
         searchFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -150,15 +160,15 @@ public class ContactManagerGUI4 extends JFrame implements ActionListener {
 
         // Create input fields
         JTextField firstNameField = new JTextField(20);
-
         JTextField lastNameField = new JTextField(20);
         //'columns: 20' --> initial width of 20 columns
         //'JTextField' -->GUI component that allows the user to enter text.
+        //               --> allos editing of single line of text
 
         // Create buttons
-        JButton searchButton = new JButton("Search");
+        JButton searchButton = new JButton("Search");//Creates a button with text: "Search"
+        JButton backButton = new JButton("Back");//Creates a button with text: "Back"
 
-        JButton backButton = new JButton("Back");
 
         // Add action listeners
         searchButton.addActionListener(new ActionListener() {
@@ -168,7 +178,7 @@ public class ContactManagerGUI4 extends JFrame implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                 searchContact(firstNameField.getText(), lastNameField.getText());
             }//End:actionPerformed
-        }
+        }//End method: actionPerfromed
         );
 
         backButton.addActionListener(new ActionListener() {
@@ -211,6 +221,11 @@ public class ContactManagerGUI4 extends JFrame implements ActionListener {
         dispose(); // Close the current window
         JFrame inputFrame = new JFrame("Input Contact Information");
         inputFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        setSize(500, 200);
+        //Sets size of GUI window, now 200
+        //Width: 400 pixels, now 500
+        //Height: 150 pixels
 
         // Create input fields
         JTextField firstNameField = new JTextField(20);
@@ -269,6 +284,12 @@ public class ContactManagerGUI4 extends JFrame implements ActionListener {
         mainFrame.pack();
         mainFrame.setLocationRelativeTo(null); // Center the main frame
         mainFrame.setVisible(true);
+
+        //INSERTED, doesn't work...
+        setSize(500, 200);
+        //Sets size of GUI window, now 200
+        //Width: 400 pixels, now 500
+        //Height: 150 pixels
 
     }//End: openMainGUI
 
@@ -337,5 +358,4 @@ public class ContactManagerGUI4 extends JFrame implements ActionListener {
         );
 
     }//End:main
-
 }//End: class ContactManagerGUI4
